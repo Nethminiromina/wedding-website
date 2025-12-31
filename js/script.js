@@ -46,3 +46,23 @@ window.onscroll = function () {
 backToTop.onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
+
+function handleKeyPress(e) {
+    if (e.keyCode === 13) { validatePassword(); }
+}
+
+async function validatePassword() {
+    const password = document.getElementById("passwordField").value;
+    const error = document.getElementById("errorMessage");
+
+    // TIP: Set your password here!
+    if (password.toLowerCase() === "love2026") {
+        // This saves a "flag" in the guest's browser so they don't 
+        // have to log in again during the same session.
+        sessionStorage.setItem("wedding_access", "true");
+        window.location.href = "home.html";
+    } else {
+        error.style.display = "block";
+        document.getElementById("passwordField").value = "";
+    }
+}
