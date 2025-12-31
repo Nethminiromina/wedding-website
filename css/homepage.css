@@ -242,8 +242,8 @@ button:hover {
 }
 
 .mandala {
-    width: 150px;
-    margin: 20px auto;
+    width: 80px;
+    margin: 10px;
     display: block;
     filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
     animation: pulse 4s infinite ease-in-out;
@@ -366,7 +366,6 @@ button:hover {
     /* Stays above everything */
     box-sizing: border-box;
     border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-    /* Thin gold line */
 }
 
 .nav-logo {
@@ -401,6 +400,11 @@ button:hover {
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 20px;
+        background: rgba(255, 253, 245, 0.8);
+        /* Your cream color with 80% transparency */
+        backdrop-filter: blur(10px);
+        /* This blurs the background behind the bar */
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
     }
 
     .nav-links {
@@ -431,4 +435,64 @@ button:hover {
 
 .venue-btn:hover {
     background: var(--gold);
+}
+
+.registry-page {
+    background-image: url('../images/mobile-bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+}
+
+.registry-card {
+    background: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    max-width: 700px;
+    margin: 40px auto;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    text-align: center;
+}
+
+.registry-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.fund-container h3 {
+    font-family: 'Theganesha', serif;
+    color: var(--gold);
+    margin-top: 30px;
+}
+
+.bank-details {
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 25px;
+    border: 1px dashed var(--marigold);
+}
+
+.calendar-wrapper {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.calendar-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: var(--desi-red);
+    border: 1px solid var(--marigold);
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Theganesha', serif;
+    transition: 0.3s;
+}
+
+.calendar-btn:hover {
+    background-color: var(--marigold);
+    color: white;
 }
