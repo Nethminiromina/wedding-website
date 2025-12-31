@@ -496,3 +496,46 @@ button:hover {
     background-color: var(--marigold);
     color: white;
 }
+
+.wedding-footer {
+    padding: 40px 20px;
+    /* Added side padding for mobile */
+    text-align: center;
+    background: #8B0000;
+    /* Replaced variable with a fallback color just in case */
+    background: var(--desi-red, #8B0000);
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    /* position: fixed; */
+    bottom: 0;
+    /* Ensures padding doesn't push the width past 100% */
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    /* margin: 0; */
+}
+
+@media (max-width: 1600px) {
+    .wedding-footer {
+        /* padding: 10%; */
+        /* Added side padding for mobile */
+        text-align: center;
+        background: #8B0000;
+        /* Replaced variable with a fallback color just in case */
+        background: var(--desi-red, #8B0000);
+        color: white;
+        width: 100%;
+        box-sizing: border-box;
+        bottom: 0;
+        /* Ensures padding doesn't push the width past 100% */
+    }
+
+    .footer-text {
+        font-size: 0.7rem;
+        line-height: 1.6;
+        /* margin: 0; */
+    }
+}
