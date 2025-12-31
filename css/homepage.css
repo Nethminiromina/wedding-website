@@ -1,0 +1,335 @@
+@font-face {
+    font-family: 'Samarkan';
+    src: url('../fonts/samarkan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Theganesha';
+    src: url('../fonts/Theganesha-V5OB.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --desi-red: #8B0000;
+    --marigold: #FFB300;
+    --cream: #f9f7ee;
+    --gold: #D4AF37;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Theganesha', sans-serif;
+    background-color: var(--cream);
+    color: #333;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-family: 'Samarkan', serif;
+    color: var(--desi-red);
+}
+
+h2 {
+    font-family: 'Theganesha', serif;
+    color: var(--desi-red);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    background: url('../images/arc3.png') no-repeat center center;
+    background-size: contain;
+
+    /* This ensures the content stays in the dead center of the screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cream);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    text-align: center;
+    /* Remove any large top margins that might be pushing it down/up */
+    margin-top: 15%;
+    /* This ensures the names and countdown stay tight together */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: -10%;
+}
+
+.hero h1 {
+    /* 'Kalam' for an Indian-handwritten look, or 'Pinyon Script' for royal calligraphy */
+    font-family: 'Samarkan', serif;
+    font-size: clamp(2.5rem, 10vw, 6rem);
+
+    /* Elegant Gold Gradient Effect */
+    background: linear-gradient(to bottom, #D4AF37 0%, #F4E07D 50%, #B8860B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin: 0;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    padding-bottom: 10px;
+    padding-top: 50px;
+}
+
+.hero-date {
+    /* font-family: "Lavishly Yours", cursive; */
+    font-family: 'Samarkan', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    color: var(--desi-red);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.hero-name {
+    font-family: 'Theganesha', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    color: var(--desi-red);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+    .hero {
+        background-size: cover;
+        /* Looks better on tall phone screens */
+    }
+}
+
+/* Agenda Section */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+.agenda-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--marigold);
+    margin-bottom: 10px;
+}
+
+.rsvp-button-link {
+    display: inline-block;
+    background-color: var(--desi-red);
+    color: white !important;
+    /* Ensure text is white */
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    /* Removes the underline */
+    font-weight: 500;
+    transition: 0.3s;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+    font-family: 'Theganesha', serif;
+}
+
+.rsvp-button-link:hover {
+    background-color: var(--marigold);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 179, 0, 0.4);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: var(--desi-red);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--marigold);
+    transform: scale(1.05);
+}
+
+.mandala {
+    width: 150px;
+    margin: 20px auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.time-box {
+    background: rgba(255, 255, 255, 0.9);
+    /* Slight transparency */
+    padding: 15px;
+    border-radius: 12px;
+    min-width: 75px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid var(--marigold);
+    /* Desi accent */
+    text-align: center;
+}
+
+.time-box span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--desi-red);
+    line-height: 1;
+}
+
+.time-box small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #666;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(255, 253, 245, 0.9);
+    /* Your cream color with transparency */
+    backdrop-filter: blur(10px);
+    /* Modern blur effect */
+    z-index: 1000;
+    /* Stays above everything */
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    /* Thin gold line */
+}
+
+.nav-logo {
+    /* font-family: 'Samarkan', serif; */
+    font-size: 1.5rem;
+    color: var(--desi-red);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* Mobile fix: Adjust padding for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+.venue-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid var(--gold);
+}
+
+.venue-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #333;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.venue-btn:hover {
+    background: var(--gold);
+}
