@@ -107,10 +107,71 @@ h2 {
 }
 
 /* Mobile Tweak */
-@media (max-width: 768px) {
+@media (max-width: 1600px) {
     .hero {
+        /* height: 100%;
+        width: 100%; */
+        /* margin-top: 10%; */
+        background: url('../images/mobile-bg.png') no-repeat center center;
         background-size: cover;
-        /* Looks better on tall phone screens */
+        background-blend-mode: overlay;
+
+        /* This ensures the content stays in the dead center of the screen */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-color: var(--cream);
+        position: relative;
+        overflow: visible;
+    }
+
+    .hero-overlay {
+        text-align: center;
+        /* Remove any large top margins that might be pushing it down/up */
+        margin-top: 15%;
+        /* This ensures the names and countdown stay tight together */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* padding-top: -10%; */
+    }
+
+    .hero h1 {
+        /* 'Kalam' for an Indian-handwritten look, or 'Pinyon Script' for royal calligraphy */
+        font-family: 'Samarkan', serif;
+        font-size: clamp(2.5rem, 10vw, 6rem);
+
+        /* Elegant Gold Gradient Effect */
+        background: linear-gradient(to bottom, #D4AF37 0%, #F4E07D 50%, #B8860B 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        margin-top: 50px;
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        padding-bottom: 10px;
+        padding-top: 50px;
+    }
+
+    .hero-date {
+        /* font-family: "Lavishly Yours", cursive; */
+        font-family: 'Samarkan', sans-serif;
+        font-size: 2rem;
+        letter-spacing: 4px;
+        color: var(--desi-red);
+        font-weight: 500;
+        margin-top: 2px;
+    }
+
+    .hero-name {
+        font-family: 'Theganesha', sans-serif;
+        font-size: 2rem;
+        letter-spacing: 4px;
+        color: var(--desi-red);
+        font-weight: 500;
+        margin-bottom: 2px;
     }
 }
 
@@ -239,6 +300,44 @@ button:hover {
     letter-spacing: 1px;
     margin-top: 5px;
     display: block;
+}
+
+@media (max-width: 1600px) {
+    #countdown {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        /* margin-top: 30px; */
+    }
+
+    .time-box {
+        background: rgba(255, 255, 255, 0.9);
+        /* Slight transparency */
+        /* padding: 15px; */
+        border-radius: 12px;
+        min-width: 50px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-bottom: 4px solid var(--marigold);
+        /* Desi accent */
+        text-align: center;
+    }
+
+    .time-box span {
+        display: block;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--desi-red);
+        line-height: 1;
+    }
+
+    .time-box small {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: #666;
+        letter-spacing: 1px;
+        margin-top: 2px;
+        display: block;
+    }
 }
 
 @keyframes rotate {
