@@ -14,9 +14,18 @@
 
 :root {
     --desi-red: #8B0000;
-    --marigold: #FFB300;
+    --marigold: #e8a500;
     --cream: #f9f7ee;
     --gold: #D4AF37;
+    --text: #2c2a28;
+    --text-muted: #666;
+    --border: #e0ddd6;
+    --desi-red-soft: rgba(139, 0, 0, 0.08);
+    --gold-soft: rgba(212, 175, 55, 0.3);
+    --cream-nav: rgba(249, 247, 238, 0.9);
+    --surface: #fdfdfd;
+    --desi-red-shadow: rgba(139, 0, 0, 0.3);
+    --marigold-glow: rgba(232, 165, 0, 0.4);
 }
 
 html {
@@ -25,9 +34,9 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Theganesha', sans-serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     background-color: var(--cream);
-    color: #333;
+    color: var(--text);
     overflow-x: hidden;
 }
 
@@ -77,7 +86,7 @@ h2 {
     font-size: clamp(2.5rem, 10vw, 6rem);
 
     /* Elegant Gold Gradient Effect */
-    background: linear-gradient(to bottom, #D4AF37 0%, #F4E07D 50%, #B8860B 100%);
+    background: linear-gradient(to bottom, var(--gold) 0%, #F4E07D 50%, #B8860B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -145,7 +154,7 @@ h2 {
         font-size: clamp(2.5rem, 10vw, 6rem);
 
         /* Elegant Gold Gradient Effect */
-        background: linear-gradient(to bottom, #D4AF37 0%, #F4E07D 50%, #B8860B 100%);
+        background: linear-gradient(to bottom, var(--gold) 0%, #F4E07D 50%, #B8860B 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 
@@ -205,14 +214,14 @@ h2 {
     font-weight: 500;
     transition: 0.3s;
     margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+    box-shadow: 0 4px 15px var(--desi-red-shadow);
     font-family: 'Theganesha', serif;
 }
 
 .rsvp-button-link:hover {
     background-color: var(--marigold);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 179, 0, 0.4);
+    box-shadow: 0 6px 20px var(--marigold-glow);
 }
 
 input,
@@ -221,7 +230,7 @@ textarea {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border);
     border-radius: 5px;
 }
 
@@ -296,10 +305,20 @@ button:hover {
 .time-box small {
     font-size: 0.75rem;
     text-transform: uppercase;
-    color: #666;
+    color: var(--text-muted);
     letter-spacing: 1px;
     margin-top: 5px;
     display: block;
+}
+
+@keyframes countdownTick {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.time-box.countdown-tick {
+    animation: countdownTick 0.2s ease-out;
 }
 
 @media (max-width: 1600px) {
@@ -333,7 +352,7 @@ button:hover {
     .time-box small {
         font-size: 0.75rem;
         text-transform: uppercase;
-        color: #666;
+        color: var(--text-muted);
         letter-spacing: 1px;
         margin-top: 2px;
         display: block;
@@ -350,6 +369,15 @@ button:hover {
     }
 }
 
+@keyframes navbarSlideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -358,14 +386,12 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: rgba(255, 253, 245, 0.9);
-    /* Your cream color with transparency */
+    background: var(--cream-nav);
     backdrop-filter: blur(10px);
-    /* Modern blur effect */
     z-index: 1000;
-    /* Stays above everything */
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    border-bottom: 1px solid var(--gold-soft);
+    animation: navbarSlideIn 0.5s ease-out forwards;
 }
 
 .nav-logo {
@@ -383,8 +409,7 @@ button:hover {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
-    /* font-family: 'Montserrat', sans-serif; */
+    color: var(--text);
     font-size: 0.9rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -400,11 +425,9 @@ button:hover {
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 20px;
-        background: rgba(255, 253, 245, 0.8);
-        /* Your cream color with 80% transparency */
+        background: rgba(249, 247, 238, 0.85);
         backdrop-filter: blur(10px);
-        /* This blurs the background behind the bar */
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        border-bottom: 1px solid var(--gold-soft);
     }
 
     .nav-links {
@@ -426,7 +449,7 @@ button:hover {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 25px;
-    background: #333;
+    background: var(--text);
     color: white !important;
     text-decoration: none;
     border-radius: 5px;
@@ -442,6 +465,13 @@ button:hover {
     background-size: cover;
     background-attachment: fixed;
     background-blend-mode: overlay;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.registry-page > section {
+    flex: 1;
 }
 
 .registry-card {
@@ -451,7 +481,7 @@ button:hover {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
     max-width: 700px;
     margin: 40px auto;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid var(--gold-soft);
     text-align: center;
 }
 
@@ -467,7 +497,7 @@ button:hover {
 }
 
 .bank-details {
-    background: #fdfdfd;
+    background: var(--surface);
     padding: 20px;
     border-radius: 10px;
     margin-top: 25px;
@@ -499,17 +529,13 @@ button:hover {
 
 .wedding-footer {
     padding: 40px 20px;
-    /* Added side padding for mobile */
     text-align: center;
-    background: #8B0000;
-    /* Replaced variable with a fallback color just in case */
-    background: var(--desi-red, #8B0000);
+    background: var(--desi-red);
     color: white;
     width: 100%;
     box-sizing: border-box;
-    /* position: fixed; */
     bottom: 0;
-    /* Ensures padding doesn't push the width past 100% */
+    border-top: 3px solid var(--gold);
 }
 
 .footer-text {
@@ -520,17 +546,12 @@ button:hover {
 
 @media (max-width: 1600px) {
     .wedding-footer {
-        /* padding: 10%; */
-        /* Added side padding for mobile */
         text-align: center;
-        background: #8B0000;
-        /* Replaced variable with a fallback color just in case */
-        background: var(--desi-red, #8B0000);
+        background: var(--desi-red);
         color: white;
         width: 100%;
         box-sizing: border-box;
         bottom: 0;
-        /* Ensures padding doesn't push the width past 100% */
     }
 
     .footer-text {
